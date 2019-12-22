@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import mysql.connector as mysql
+import os
 app = Flask(__name__)
 
 db = mysql.connect(
@@ -47,6 +48,14 @@ def test():
     adverts = cursor.fetchall()
 
     return str(len(adverts))
+
+@app.route('/new')
+def new():
+    osvar = os.environ.get("USER")
+    if osvar == None:
+        return "Was none"
+    else:
+        return str(osvar)
 
 if __name__ == "__main__":
     app.run(host='127.0.0.1', port=8080, debug=True)
