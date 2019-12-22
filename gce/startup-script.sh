@@ -1,6 +1,8 @@
 
 set -v
 
+ABC="123"; export ABC
+
 # Install Stackdriver logging agent
 curl -sSO https://dl.google.com/cloudagents/install-logging-agent.sh
 sudo bash install-logging-agent.sh
