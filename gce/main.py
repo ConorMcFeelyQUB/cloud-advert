@@ -51,7 +51,7 @@ def test():
 
 @app.route('/new')
 def new():
-    osvar = os.environ.get("autostart")
+    osvar = os.environ.get("TESTTT")
     if osvar == None:
         return "Was none"
     else:
