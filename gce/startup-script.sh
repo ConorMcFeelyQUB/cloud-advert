@@ -1,7 +1,10 @@
 
 set -v
 
-ABC="123"; export ABC
+#Trying to set env variable permanently so adding to bashrc then sourcing it to refresh
+#python os.get will hopefully be able to see it
+echo 'export' ABZ'='"222">>~/.bashrc
+source ~/.bashrc
 
 # Install Stackdriver logging agent
 curl -sSO https://dl.google.com/cloudagents/install-logging-agent.sh
