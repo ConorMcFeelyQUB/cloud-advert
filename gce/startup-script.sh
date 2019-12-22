@@ -34,7 +34,7 @@ source /opt/app/gce/env/bin/activate
 chown -R pythonapp:pythonapp /opt/app
 
 #Put DB ip in envariables 
-echo -n ',TESTTT='"${OUTPUT}" >> /opt/app/gce/python-app.conf
+echo -n ',TESTTT='"${GETIP}" >> /opt/app/gce/python-app.conf
 
 # Put supervisor configuration in proper place
 cp /opt/app/gce/python-app.conf /etc/supervisor/conf.d/python-app.conf
