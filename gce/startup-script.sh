@@ -3,8 +3,11 @@ set -v
 
 #Trying to set env variable permanently so adding to bashrc then sourcing it to refresh
 #python os.get will hopefully be able to see it
-echo 'export' ABZ'='"222">>~/.bashrc
-source ~/.bashrc
+#echo 'export' ABZ'='"222">>~/.bashrc
+#source ~/.bashrc
+
+GETIP="$(gcloud sql instances describe myinstance --format='get(ipAddresses[0].ipAddress)')"
+
 
 # Install Stackdriver logging agent
 curl -sSO https://dl.google.com/cloudagents/install-logging-agent.sh
@@ -29,6 +32,9 @@ source /opt/app/gce/env/bin/activate
 
 # For supervisor set ownership of the new account 
 chown -R pythonapp:pythonapp /opt/app
+
+#Put DB ip in envariables 
+echo -n ',TESTTT='"${OUTPUT}" >> /opt/app/gce/python-app.conf
 
 # Put supervisor configuration in proper place
 cp /opt/app/gce/python-app.conf /etc/supervisor/conf.d/python-app.conf
