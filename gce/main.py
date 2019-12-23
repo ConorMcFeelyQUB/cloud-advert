@@ -3,8 +3,10 @@ import mysql.connector as mysql
 import os
 app = Flask(__name__)
 
+advert_ip = str(os.environ.get("ADVERTIP"))
+
 db = mysql.connect(
-    host = "35.187.184.139",
+    host = advert_ip,
     user = "root",
     passwd = "QUBccProject"
 )
